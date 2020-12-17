@@ -1,0 +1,23 @@
+# Exclude all binaries
+bin
+
+# Exclude all object files
+obj
+
+# Exclude all db files
+*.db
+
+# Exclude wwwroot files
+wwwroot
+
+# Exclude publish files
+publish
+
+settings.json
+
+# Exclude appsettings.json
+appsettings.json
+
+# Exclude .vscode files
+**/.vscode/
+
