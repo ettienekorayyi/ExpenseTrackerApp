@@ -11,27 +11,11 @@ namespace Persistence
         {
         }
 
-        public DbSet<TestValue> TestValues { get; set; }
+        public DbSet<Expense> Expenses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<TestValue>().HasData(
-                new TestValue {
-                    Id = Guid.NewGuid(),
-                    Title = "Test Value 1",
-                    Description = "Lorem ipsum dolor1"
-                },
-                 new TestValue {
-                    Id = Guid.NewGuid(),
-                    Title = "Test Value 2",
-                    Description = "Lorem ipsum dolor2"
-                },
-                 new TestValue {
-                    Id = Guid.NewGuid(),
-                    Title = "Test Value 3",
-                    Description = "Lorem ipsum dolor3"
-                }
-            );
+            base.OnModelCreating(builder);
         }
     }
 }

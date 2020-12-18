@@ -24,7 +24,7 @@ namespace API
                 {
                     var context = services.GetRequiredService<ExpenseTrackerDbContext>();
                     context.Database.Migrate();
-                    
+                    Seed.SeedData(context);
                 }
                 catch (Exception ex)
                 {
