@@ -20,7 +20,8 @@ namespace Persistence
                         Description = "Dined in at Tanomi",
                         Category = "Leisure",
                         Date = DateTime.Now,
-                        Shop = "",
+                        Shop = "Tanomi Lidcombe",
+                        Quantity = 2,
                         Amount = 15
                     },
                     new Expense {
@@ -29,6 +30,7 @@ namespace Persistence
                         Category = "Transport",
                         Date = DateTime.Now,
                         Shop = "Lidcombe Station",
+                        Quantity = 2,
                         Amount = 20
                     },
                     new Expense {
@@ -37,6 +39,7 @@ namespace Persistence
                         Category = "Food and Drink",
                         Date = DateTime.Now,
                         Shop = "T.Come",
+                        Quantity = 2,
                         Amount = 12
                     },
                     new Expense {
@@ -45,6 +48,7 @@ namespace Persistence
                         Category = "Load",
                         Date = DateTime.Now,
                         Shop = "Lidcombe Station",
+                        Quantity = 1,
                         Amount = 35
                     },
                     new Expense {
@@ -52,8 +56,9 @@ namespace Persistence
                         Description = "Booked a room for our Anniversary",
                         Category = "Holiday",
                         Date = DateTime.Now,
-                        Shop = "Lidcombe Station",
-                        Amount = 35
+                        Shop = "Meriton Chatswood",
+                        Quantity = 2,
+                        Amount = 300
                     }
                 };
                 context.Expenses.AddRange(expenses);
