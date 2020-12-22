@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Persistence;
+using Application.Expenses;
+using Application.DTOs;
+using ExpenseTracker.Application.Expenses;
 
 namespace ExpenseTracker.API.Controllers
 {
@@ -13,88 +17,50 @@ namespace ExpenseTracker.API.Controllers
     public class ExpensesController : ControllerBase
     {
         private readonly ExpenseTrackerDbContext _dbContext;
-        public ExpensesController(ExpenseTrackerDbContext dbContext)
+        private readonly IMediator _mediator;
+        public ExpensesController(ExpenseTrackerDbContext dbContext, IMediator mediator)
         {
+            _mediator = mediator;
             _dbContext = dbContext;
         }
 
         // GET api/expenses
         [HttpGet]
-        public ActionResult<IEnumerable<Expense>> Get()
+        public async Task<IEnumerable<ExpenseDTO>> Get()
         {
-            var results = _dbContext.Expenses.AsQueryable();
-
-            if (results == null)
-                return NotFound();
-
-            return Ok(results);
+            return await _mediator.Send(new List.Query());
         }
 
         // GET api/expenses/5
         [HttpGet("{id}")]
-        public ActionResult<Expense> Get(Guid id)
+        public async Task<ExpenseDTO> Get(Guid id)
         {
-            var result = _dbContext.Expenses
-                .FirstOrDefault(exp => exp.Id == id);
-
-            if (result == null)
-                return NotFound();
-
-            return Ok(result);
+            return await _mediator.Send(new Details.Query { Id = id });
         }
 
         // POST api/expenses
         [HttpPost]
-        public ActionResult Post([FromBody] Expense expense)
+        public async Task<ActionResult<Unit>> Post([FromBody] ExpenseDTO expense)
         {
-            if (expense == null)
-                return BadRequest();
-
-            _dbContext.Add(expense);
-            _dbContext.SaveChanges();
-
-            return Created("/api/expenses/", 
-                new { Result = "New Expense has been added." });            
+            if (!ModelState.IsValid) BadRequest();
+            
+            return await _mediator.Send(new Create.Command { Expense = expense });
         }
 
         // PUT api/expenses/5
         [HttpPut("{id}")]
-        public ActionResult Put(Guid id, [FromBody] Expense expense)
+        public async Task<ActionResult<Unit>> Put(Guid id, [FromBody] ExpenseDTO expense)
         {
-            if(id != expense.Id)
-                BadRequest();
+            if (!ModelState.IsValid) BadRequest();
 
-            var result = _dbContext.Expenses
-                .FirstOrDefault(exp => exp.Id == id);
-
-            if(result == null)
-                NotFound();
-            
-            result.Description = expense.Description;
-            result.Category = expense.Category;
-            result.Shop = expense.Shop;
-            result.Quantity = expense.Quantity;
-            result.Amount = expense.Amount;
-            result.Date = expense.Date;
-
-            _dbContext.SaveChanges();
-
-            return NoContent();
+            return await _mediator.Send(new Edit.Command { Id = id, Expense = expense  });
         }
 
         // DELETE api/expenses/5
         [HttpDelete("{id}")]
-        public ActionResult Delete(Guid id)
+        public async Task<ActionResult<Unit>> Delete(Guid id)
         {
-            var result = _dbContext.Expenses.FirstOrDefault(exp => exp.Id == id);
-
-            if(result == null)
-                NotFound();
-
-            _dbContext.Remove(result);
-            _dbContext.SaveChanges();
-
-            return NoContent();
+            return await _mediator.Send(new Delete.Command { Id = id });
         }
 
     }

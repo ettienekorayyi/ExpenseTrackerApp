@@ -11,6 +11,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
+using AutoMapper;
+using Application.Expenses;
+using MediatR;
+using Application.DTOs;
 
 namespace API
 {
@@ -30,6 +34,8 @@ namespace API
             {
                 opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
             });
+            services.AddAutoMapper(typeof(MappingProfile).Assembly);
+            services.AddMediatR(typeof(List.Handler));
             services.AddControllers();
         }
 
