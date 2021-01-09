@@ -1,5 +1,6 @@
 ﻿using System;
 using Domain;
+using ExpenseTracker.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence
@@ -13,9 +14,5 @@ namespace Persistence
 
         public DbSet<Expense> Expenses { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            base.OnModelCreating(builder);
-        }
     }
 }

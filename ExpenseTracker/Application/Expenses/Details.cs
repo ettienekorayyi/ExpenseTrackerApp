@@ -31,7 +31,7 @@ namespace ExpenseTracker.Application.Expenses
             {
                 var expense = await _context.Expenses.FindAsync(request.Id);
 
-                if(expense == null) throw new Exception("Read failed: Cannot find expense...");
+                if(expense == null) throw new ArgumentNullException("Read failed: Cannot find expense...");
 
                 return _mapper.Map<Expense, ExpenseDTO>(expense);
             }

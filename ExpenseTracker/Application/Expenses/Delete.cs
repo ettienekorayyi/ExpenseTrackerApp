@@ -20,25 +20,24 @@ namespace Application.Expenses
         public class Handler : IRequestHandler<Command>
         {
             private readonly ExpenseTrackerDbContext _context;
-            private readonly IMapper _mapper;
-            public Handler(ExpenseTrackerDbContext context, IMapper mapper)
+
+            public Handler(ExpenseTrackerDbContext context)
             {
-                this._mapper = mapper;
-                this._context = context;
+                _context = context;
             }
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
                 var removeExpense = await _context.Expenses.FindAsync(request.Id);
 
-                if (removeExpense == null) throw new Exception("Delete failed: Cannot find expense.");
-                
+                if (removeExpense == null) throw new ArgumentNullException("Cannot find expense to the database.");
+
                 _context.Expenses.Remove(removeExpense);
 
                 var success = await _context.SaveChangesAsync() > 0;
-                if(success) return Unit.Value;
+                if (success) return Unit.Value;
 
-                throw new Exception("Problem adding expense.");
+                throw new DbUpdateException($"Problem Deleting the expense {removeExpense.Description}");
             }
 
         }

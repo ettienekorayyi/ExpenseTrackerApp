@@ -15,6 +15,9 @@ using AutoMapper;
 using Application.Expenses;
 using MediatR;
 using Application.DTOs;
+using ExpenseTracker.Application.Classes;
+using ExpenseTracker.Application.Interfaces;
+using ExpenseTracker.Persistence;
 
 namespace API
 {
@@ -34,6 +37,8 @@ namespace API
             {
                 opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
             });
+            services.AddScoped<IRepository, ExpensesRepository>();
+            //services.AddScoped<IDbContext, ExpenseTrackerDbContext>();
             services.AddAutoMapper(typeof(MappingProfile).Assembly);
             services.AddMediatR(typeof(List.Handler));
             services.AddControllers();
