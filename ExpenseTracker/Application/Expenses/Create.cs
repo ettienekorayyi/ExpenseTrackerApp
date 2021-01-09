@@ -7,6 +7,7 @@ using AutoMapper;
 using Domain;
 using MediatR;
 using Persistence;
+using ExpenseTracker.Application.Interfaces;
 
 namespace Application.Expenses
 {
@@ -19,25 +20,29 @@ namespace Application.Expenses
 
         public class Handler : IRequestHandler<Command>
         {
-            private readonly ExpenseTrackerDbContext _context;
+            private readonly IRepository _repository;
             private readonly IMapper _mapper;
+
+            private ExpenseTrackerDbContext _context;
+            
             public Handler(ExpenseTrackerDbContext context, IMapper mapper)
             {
-                this._mapper = mapper;
-                this._context = context;
+                 _mapper = mapper;
+                _context = context;
             }
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
                 if (request.Expense == null)
-                    throw new Exception("Null");
+                    throw new ArgumentNullException("The expense values are null.");
                 
                 var newExpense = _mapper.Map<ExpenseDTO, Expense>(request.Expense);
+                
                 await _context.Expenses.AddAsync(newExpense);
 
-                var success = await _context.SaveChangesAsync() > 0;
+                var success = await _context.SaveChangesAsync() > 0 ; 
                 if(success) return Unit.Value;
-
+                
                 throw new Exception("Problem adding expense.");
             }
 

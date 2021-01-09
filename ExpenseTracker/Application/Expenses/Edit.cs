@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Application.DTOs;
 using AutoMapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Persistence;
 
 namespace Application.Expenses
@@ -32,16 +33,17 @@ namespace Application.Expenses
             {
                 var currentExpense = await _context.Expenses.FindAsync(request.Id);
 
-                if(currentExpense == null) throw new NullReferenceException();
+                if (currentExpense == null)
+                    throw new ArgumentNullException("Can't find the expense record.");
 
-               request.Expense.Id = currentExpense.Id;
+                request.Expense.Id = currentExpense.Id;
 
                 _mapper.Map(request.Expense, currentExpense);
 
                 var success = await _context.SaveChangesAsync() > 0;
-                if(success) return Unit.Value;
+                if (success) return Unit.Value;
 
-                throw new Exception("Problem saving changes.");
+                throw new DbUpdateException("Problem saving changes.");
             }
         }
 

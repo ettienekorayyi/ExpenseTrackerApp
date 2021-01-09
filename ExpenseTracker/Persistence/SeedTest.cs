@@ -7,7 +7,7 @@ using Persistence;
 
 namespace Persistence
 {
-    public class Seed
+    public class SeedTest
     {
         public static void SeedData(ExpenseTrackerDbContext context)
         {
@@ -52,7 +52,7 @@ namespace Persistence
                         Amount = 35
                     },
                     new Expense {
-                        Id = Guid.NewGuid(),
+                        Id = new Guid("fc0d6a3f-1a7e-4c5a-aa2f-2d952c4c8712"),
                         Description = "Booked a room for our Anniversary",
                         Category = "Holiday",
                         Date = DateTime.Now,
