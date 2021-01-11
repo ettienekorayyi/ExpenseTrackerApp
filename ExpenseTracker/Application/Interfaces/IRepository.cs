@@ -8,7 +8,5 @@ namespace ExpenseTracker.Application.Interfaces
     public interface IRepository
     {
         Task<IEnumerable<Expense>> GetExpenses();
-        Task<bool> AddExpense(Expense newExpense);
-        //bool AddExpense(Expense newExpense);
     }
 }
