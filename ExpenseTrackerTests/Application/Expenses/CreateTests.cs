@@ -21,7 +21,6 @@ namespace ExpenseTrackerTests.Application.Expenses
     {
         private DbContextOptions<ExpenseTrackerDbContext> _options;
         private Mock<IMapper> _mockMapper;
-        private Mock<IRepository> _mockRepository;
         private Mock<IRequestHandler<Create.Command>> _mockCreateHandler;
         private Mock<IDbContext> _dBcontext;
         private Create.Handler _createHandler;
@@ -33,7 +32,6 @@ namespace ExpenseTrackerTests.Application.Expenses
 
         public CreateTests()
         {
-            _mockRepository = new Mock<IRepository>();
             _mockMapper = new Mock<IMapper>();
             _dBcontext = new Mock<IDbContext>();
             _mockCreateHandler = new Mock<IRequestHandler<Create.Command>>();
@@ -72,10 +70,6 @@ namespace ExpenseTrackerTests.Application.Expenses
             _mockCreateHandler
                 .Setup(c => c.Handle(_createCommand, token))
                 .Returns(It.IsAny<Task<Unit>>());
-
-            _mockRepository
-                .Setup(r => r.AddExpense(_expense))
-                .Returns(It.IsAny<Task<bool>>());
 
             _mockMapper
                 .Setup(m => m.Map<ExpenseDTO, Expense>(_createCommand.Expense))

@@ -113,22 +113,5 @@ namespace ExpenseTrackerTests.Application.Expenses
             }
         }
 
-        [Fact]
-        public void GetExpenses_WhenCalled_ShouldAddExpense()
-        {
-            using (var context = new ExpenseTrackerDbContext(_options))
-            {
-                context.Database.EnsureDeleted();
-                context.Database.EnsureCreated();
-                Seed.SeedData(context);
-                
-                _expensesRepository = new ExpensesRepository(context);
-                var result = _expensesRepository.AddExpense(_expense);
-                
-                Assert.Equal(true, result.Result);
-            }
-        }
-
-       
     }
 }
