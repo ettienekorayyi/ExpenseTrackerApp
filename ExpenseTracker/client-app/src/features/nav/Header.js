@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import { Menu, Image, Segment, Grid } from "semantic-ui-react";
+import { headerMenuStyle } from "../../app/common/styleHelper";
 
 
 const Header = () => {
   const [activeItem, setActiveItem] = useState("home");
   const handleItemClick = (e, { name }) => setActiveItem(name);
   
-
   return (
-    <Segment.Group style={{ backgroundColor: "#FFFFFF", border: 0 }}>
-      <Menu inverted pointing vertical style={{ minHeight: 450, height: 807 }}>
+    
+      <Menu 
+        inverted 
+        pointing 
+        vertical 
+        style={headerMenuStyle}>
         <Menu.Item>
           <Image
             src="https://react.semantic-ui.com/images/wireframe/square-image.png"
@@ -24,13 +28,13 @@ const Header = () => {
           onClick={handleItemClick}
         />
         <Menu.Item
-          name="categories"
-          active={activeItem === "categories"}
+          name="bills"
+          active={activeItem === "bills"}
           onClick={handleItemClick}
         />
         <Menu.Item
-          name="transactions"
-          active={activeItem === "transactions"}
+          name="categories"
+          active={activeItem === "categories"}
           onClick={handleItemClick}
         />
         <Menu.Item
@@ -39,8 +43,8 @@ const Header = () => {
           onClick={handleItemClick}
         />
         <Menu.Item
-          name="bills"
-          active={activeItem === "bills"}
+          name="calendar"
+          active={activeItem === "calendar"}
           onClick={handleItemClick}
         />
         <Menu.Item
@@ -49,7 +53,7 @@ const Header = () => {
           onClick={handleItemClick}
         />
       </Menu>
-    </Segment.Group>
+    
   );
 };
 
