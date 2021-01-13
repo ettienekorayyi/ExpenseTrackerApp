@@ -1,13 +1,13 @@
 
-import Header from '../../features/nav/Header';
-import { Menu, Image, Segment } from "semantic-ui-react";
+import { Grid, Container, Image, Segment } from "semantic-ui-react";
+import Content from "./Content";
+import "./styles.css";
 
 function App() {
   return (
-    <Segment style={{backgroundColor: "#403D51"}}>
-      <Header />
-      
-    </Segment>
+    <Segment.Group >
+      <Content />
+    </Segment.Group>
   );
 }
 
