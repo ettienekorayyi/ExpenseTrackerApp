@@ -33,3 +33,7 @@ div#expenses-grid { width: 42vw; }
 .ui.segments {
     width: 40vw;
 }
+
+.ui.segment {
+    border-radius: 30px !important;
+}

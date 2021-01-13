@@ -11,7 +11,6 @@ function App() {
        <Header />
       </Grid.Column>
       <Grid.Column id='expenses-grid'>
-        
         <ExpensesList />
       </Grid.Column>
     </Grid>
