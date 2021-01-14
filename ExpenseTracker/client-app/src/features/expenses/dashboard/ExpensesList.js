@@ -67,7 +67,9 @@ const ExpensesList = () => {
               </SemantiUiHeader>
             </Divider>
           </Item.Header>
-          <Item.Group items={items} />
+          <Item.Content>
+            <Item.Group items={items} />
+          </Item.Content>
         </Item>
       </Segment>
     </Segment.Group>
