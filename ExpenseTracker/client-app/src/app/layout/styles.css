@@ -16,7 +16,7 @@ div#navigation-grid {
     padding: 1.5em;
 }
 
-.ui.three.column.grid {
+div#expenses {
     background-color: #252836 !important;
     height: 100vh;
     margin: 0;
@@ -32,8 +32,4 @@ div#expenses-grid { width: 42vw; }
 
 .ui.segments {
     width: 40vw;
-}
-
-.ui.segment {
-    border-radius: 30px !important;
 }
