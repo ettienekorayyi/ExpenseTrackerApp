@@ -1,35 +1,66 @@
 body {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 #root {
-    font-size: 12px;
-    margin: 0;
-    padding: 0;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
 }
 
 div#navigation-grid {
-    width: 20rem !important;
+  width: 20rem !important;
 }
 
-.ui.items>.item>.image+.content {
-    padding: 1.5em;
+.ui.inverted.pointing.vertical.menu {
+  height: 100vh !important;
+}
+
+.ui.items > .item > .image + .content {
+  padding: 1.5em;
 }
 
 div#expenses {
-    background-color: #252836 !important;
-    height: 100vh;
-    margin: 0;
+  background-color: #252836 !important;
+  height: 100vh;
+  margin: 0;
 }
 
-div#expenses-grid { width: 42vw; }
+div#expenses-grid {
+  width: 42vw;
+}
 
 .ui.items {
-    overflow-y: scroll;
-    height: 49vh;
-    width: 38.5vw;
+  overflow-y: scroll;
+  height: 49vh;
+  width: 38.5vw;
 }
 
 .ui.segments {
-    width: 40vw;
+  width: 40vw;
+}
+
+.row {
+  height: 35vh;
+}
+
+.colored {
+  display: block;
+  width: 30vw !important;
+  margin: 12.5px auto;
+  
+  margin: 2% !important;
+}
+
+.donut-chart {
+    height: 3rem;
+}
+
+.category-row {
+  height: inherit;
+}
+
+.row.category-row {
+  background-color: white;
+  margin: 0.25rem;
 }

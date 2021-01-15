@@ -62,7 +62,7 @@ const ExpensesList = () => {
           <Item.Header style={{ margin: 20 }}>
             <Divider horizontal>
               <SemantiUiHeader as="h1">
-                <Icon name="tag" />
+                <Icon name="calculator" />
                 Transactions
               </SemantiUiHeader>
             </Divider>

@@ -1,18 +1,27 @@
-import { Grid } from "semantic-ui-react";
+import { Grid, Segment } from "semantic-ui-react";
 import Header from "../../features/nav/Header";
 import ExpensesList from "../../features/expenses/dashboard/ExpensesList";
-import CurrentExpenses from "../../features/expenses/dashboard/CurrentExpenses";
+import ExpensesSummary from "../../features/expenses/dashboard/ExpensesSummary";
+import ExpensesCategory from "../../features/expenses/dashboard/ExpensesCategory";
 import "./styles.css";
 
 function App() {
   return (
-    <Grid columns={3} id='expenses'>
-      <Grid.Column id='navigation-grid'>
-       <Header />
+    <Grid columns={3} id="expenses">
+      <Grid.Column id="navigation-grid">
+        <Header />
       </Grid.Column>
-      <Grid.Column >
-        <CurrentExpenses />
+      <Grid.Column id="expenses-grid">
+        <ExpensesSummary />
         <ExpensesList />
+      </Grid.Column>
+      <Grid.Column id="misc-grid">
+        <Grid.Row>
+          
+        </Grid.Row>
+        <Grid.Row>
+          <ExpensesCategory />
+        </Grid.Row>
       </Grid.Column>
     </Grid>
   );
