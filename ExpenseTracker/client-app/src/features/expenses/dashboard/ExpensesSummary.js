@@ -13,27 +13,24 @@ const items = [
   {
     key: "sdfaa1",
     header: "Total Expenses",
-    description:
-      "1200",
+    description: "1200",
     meta: "ROI: 30%",
   },
   {
     key: "sdfaa2",
     header: "Income",
-    description:
-      "3000",
+    description: "3000",
     meta: "ROI: 30%",
   },
   {
     key: "sdfaa3",
     header: "Remaining",
-    description:
-      "1200",
+    description: "1200",
     meta: "ROI: 30%",
   },
 ];
 
-const CurrentExpenses = () => {
+const ExpensesSummary = () => {
   return (
     <Segment.Group basic>
       <Segment>
@@ -50,17 +47,15 @@ const CurrentExpenses = () => {
             {items.map((i) => {
               return (
                 <Grid.Column>
-                  <Card.Group>
-                    <Card>
+                  <Card>
                       <Card.Content>
-                        <Card.Header>{i.header}</Card.Header>
+                        <Card.Header key={i.key}>{i.header}</Card.Header>
                         <Card.Description>
                           <i class="dollar sign icon" />
                           <strong>{i.description}</strong>
                         </Card.Description>
                       </Card.Content>
                     </Card>
-                  </Card.Group>
                 </Grid.Column>
               );
             })}
@@ -71,4 +66,4 @@ const CurrentExpenses = () => {
   );
 };
 
-export default CurrentExpenses;
+export default ExpensesSummary;
