@@ -24,7 +24,7 @@ const groceryMock = [
   },
 ];
 
-const CategoryChart = (props) => {
+const CategoryChartWidget = (props) => {
   return (
     <PieChart
       className="donut-chart"
@@ -37,4 +37,4 @@ const CategoryChart = (props) => {
   );
 };
 
-export default CategoryChart;
+export default CategoryChartWidget;

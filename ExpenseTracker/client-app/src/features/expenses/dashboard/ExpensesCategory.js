@@ -9,7 +9,7 @@ import {
   Grid,
   Container,
 } from "semantic-ui-react";
-import CategoryChart from "../../categories/CategoryChart";
+import CategoryChartWidget from "../../categories/CategoryChartWidget";
 
 const items = [
   {
@@ -56,7 +56,7 @@ const ExpensesCategory = () => {
       <Header as='h2' style={{ color: '#ffffff'}}>Expenses by Category</Header>
       <Grid.Row className="category-row">
         <Grid.Column width={3}>
-          <CategoryChart dataMock={foodAndBeverageMock} />
+          <CategoryChartWidget dataMock={foodAndBeverageMock} />
         </Grid.Column>
 
         <Grid.Column width={10}>
@@ -79,7 +79,7 @@ const ExpensesCategory = () => {
 
       <Grid.Row className="category-row">
         <Grid.Column width={3}>
-          <CategoryChart dataMock={groceriesMock} />
+          <CategoryChartWidget dataMock={groceriesMock} />
         </Grid.Column>
 
         <Grid.Column width={10}>
@@ -102,7 +102,7 @@ const ExpensesCategory = () => {
 
       <Grid.Row className="category-row">
         <Grid.Column width={3}>
-          <CategoryChart dataMock={householdMock} />
+          <CategoryChartWidget dataMock={householdMock} />
         </Grid.Column>
 
         <Grid.Column width={10}>
