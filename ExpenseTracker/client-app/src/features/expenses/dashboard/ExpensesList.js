@@ -5,6 +5,8 @@ import {
   Divider,
   Item,
   Icon,
+  Grid,
+  Container,
 } from "semantic-ui-react";
 
 const paragraph = "lorem ioafjfajnfaj  sa dafn dnfkankfak fdsajk";
@@ -26,7 +28,11 @@ const items = [
     header: "Header",
     description: "Description",
     meta: "Metadata",
-    extra: "Extra",
+    extra: (
+      <button>
+        <Icon className="pencil alternate" />
+      </button>
+    ),
   },
   {
     childKey: 2,
@@ -34,7 +40,11 @@ const items = [
     header: "Header",
     description: "Description",
     meta: "Metadata",
-    extra: "Extra",
+    extra: (
+      <button>
+        <Icon className="pencil alternate" />
+      </button>
+    ),
   },
   {
     childKey: 3,
@@ -42,7 +52,11 @@ const items = [
     header: "Header",
     description: "Description",
     meta: "Metadata",
-    extra: "Extra",
+    extra: (
+      <button>
+        <Icon className="pencil alternate" />
+      </button>
+    ),
   },
   {
     childKey: 4,
@@ -50,29 +64,29 @@ const items = [
     header: "Header",
     description: "Description",
     meta: "Metadata",
-    extra: "Extra",
+    extra: (
+      <button>
+        <Icon className="pencil alternate" />
+      </button>
+    ),
   },
 ];
 
-const ExpensesList = () => {
+export const ExpensesList = () => {
   return (
-    <Segment.Group basic>
-      <Segment>
-        <Item width={10}>
-          <Item.Header style={{ margin: 20 }}>
-            <Divider horizontal>
-              <SemantiUiHeader as="h1">
-                <Icon name="calculator" />
-                Transactions
-              </SemantiUiHeader>
-            </Divider>
-          </Item.Header>
-          <Item.Content>
-            <Item.Group items={items} />
-          </Item.Content>
-        </Item>
-      </Segment>
-    </Segment.Group>
+    <Item width={10}>
+      <Item.Header style={{ margin: 20 }}>
+        <Divider horizontal>
+          <SemantiUiHeader as="h1">
+            <Icon name="calculator" />
+            Transactions
+          </SemantiUiHeader>
+        </Divider>
+      </Item.Header>
+      <Item.Content>
+        <Item.Group id="expense-items" items={items} />
+      </Item.Content>
+    </Item>
   );
 };
 
