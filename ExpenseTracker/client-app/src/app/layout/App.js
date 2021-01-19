@@ -1,32 +1,27 @@
 import { Grid, Header as SemanticUIHeader } from "semantic-ui-react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Header from "../../features/nav/Header";
 import ExpensesList from "../../features/expenses/dashboard/ExpensesList";
+import ExpensesContent from "../../features/expenses/dashboard/ExpensesContent";
 import ExpensesSummary from "../../features/expenses/dashboard/ExpensesSummary";
 import ExpensesCategory from "../../features/expenses/dashboard/ExpensesCategory";
+import Dashboard from "../../features/expenses/dashboard/Dashboard";
 import Categories from "../../features/categories/Categories";
 import "./styles.css";
 
 function App() {
+  /* 
+  
+  */
+
   return (
-    <Grid columns={3} id="expenses">
-      <Grid.Column id="navigation-grid">
+    <Router>
+      <div className="default">
         <Header />
-      </Grid.Column>
-      <Grid.Column id="expenses-grid">
-        <ExpensesSummary />
-        <ExpensesList />
-      </Grid.Column>
-      <Grid.Column id="misc-grid">
-        <Grid.Row>
-          <SemanticUIHeader as="h2" style={{ color: "white" }}>
-            Search Feature
-          </SemanticUIHeader>
-        </Grid.Row>
-        <Grid.Row>
-          <ExpensesCategory />
-        </Grid.Row>
-      </Grid.Column>
-    </Grid>
+        <Route exact path="/" component={Dashboard} />
+        <Route path="/expenses" component={ExpensesContent} />
+      </div>
+    </Router>
   );
 }
 

@@ -32,37 +32,33 @@ const items = [
 
 const ExpensesSummary = () => {
   return (
-    <Segment.Group basic>
-      <Segment>
-        <Item width={10}>
-          <Item.Header style={{ margin: 20 }}>
-            <Divider horizontal>
-              <SemantiUiHeader as="h1">
-                <Icon name="tag" />
-                Summary
-              </SemantiUiHeader>
-            </Divider>
-          </Item.Header>
-          <Grid columns={3}>
-            {items.map((i) => {
-              return (
-                <Grid.Column>
-                  <Card>
-                      <Card.Content>
-                        <Card.Header key={i.key}>{i.header}</Card.Header>
-                        <Card.Description>
-                          <i class="dollar sign icon" />
-                          <strong>{i.description}</strong>
-                        </Card.Description>
-                      </Card.Content>
-                    </Card>
-                </Grid.Column>
-              );
-            })}
-          </Grid>
-        </Item>
-      </Segment>
-    </Segment.Group>
+    <Item width={10}>
+      <Item.Header style={{ margin: 20 }}>
+        <Divider horizontal>
+          <SemantiUiHeader as="h1">
+            <Icon name="tag" />
+            Summary
+          </SemantiUiHeader>
+        </Divider>
+      </Item.Header>
+      <Grid columns={3}>
+        {items.map((i) => {
+          return (
+            <Grid.Column>
+              <Card>
+                <Card.Content>
+                  <Card.Header key={i.key}>{i.header}</Card.Header>
+                  <Card.Description>
+                    <i class="dollar sign icon" />
+                    <strong>{i.description}</strong>
+                  </Card.Description>
+                </Card.Content>
+              </Card>
+            </Grid.Column>
+          );
+        })}
+      </Grid>
+    </Item>
   );
 };
 

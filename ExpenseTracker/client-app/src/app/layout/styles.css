@@ -19,15 +19,66 @@ div#navigation-grid {
 .ui.items > .item > .image + .content {
   padding: 1.5em;
 }
+.ui.grid {
+  margin-top: 0;
+}
 
-div#expenses {
+div.default {
   background-color: #252836 !important;
   height: 100vh;
   margin: 0;
 }
 
-div#expenses-grid {
+/**/
+div#dashboard-expenses-grid,
+div#expenses-list-grid {
   width: 42vw;
+}
+
+div#expenses-summary {
+  height: 23vh;
+}
+
+.ui.three.column.grid {
+  height: 11vh;
+  margin: 0;
+}
+
+.header,
+.ui.horizontal.divider {
+  margin: 0 !important;
+}
+
+div#dashboard-expenses-list {
+  position: absolute;
+  width: 40vw;
+  top: 28vh;
+}
+
+div#expenses-list {
+  height: 66vh;
+}
+
+div#expenses-content {
+  height: 95vh;
+}
+
+div#expenses-list-grid
+  > .ui.segments
+  > div#expenses-content
+  > .expenses-content-row
+  > .item
+  > .content
+  > div#expense-items {
+  height: 73vh !important;
+}
+
+.dashboard-content-row {
+  height: 40vh !important;
+}
+
+div#expense-items {
+  height: 46vh !important;
 }
 
 .ui.items {
@@ -40,20 +91,16 @@ div#expenses-grid {
   width: 40vw;
 }
 
-.row {
-  height: 35vh;
-}
-
 .colored {
   display: block;
   width: 30vw !important;
   margin: 12.5px auto;
-  
+
   margin: 2% !important;
 }
 
 .donut-chart {
-    height: 3rem;
+  height: 3rem;
 }
 
 .category-row {
@@ -63,4 +110,22 @@ div#expenses-grid {
 .row.category-row {
   background-color: white;
   margin: 0.25rem;
+}
+
+/* Add button */
+button.ui.secondary.button {
+  box-shadow: 1px 1px 20px 6px #888888;
+  border-radius: 50%;
+  height: 9vh;
+  width: 5vw;
+  margin: 0;
+}
+
+i.plus.icon {
+  margin: 0;
+  padding-top: 7px;
+  padding-right: 1px;
+  padding-left: 1px;
+  padding-bottom: 7px;
+  font-size: 30px;
 }
