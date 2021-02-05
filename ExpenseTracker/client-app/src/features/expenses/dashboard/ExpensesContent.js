@@ -6,6 +6,7 @@ import {
   Header as SemanticUIHeader,
 } from "semantic-ui-react";
 import ExpensesList from "./ExpensesList";
+import NewExpense from './NewExpense';
 
 const ExpensesContent = () => {
   return (
@@ -30,7 +31,7 @@ const ExpensesContent = () => {
       <Grid.Column id="expenses-crud-grid">
         <Grid.Row className='expenses-content-row'>
           <SemanticUIHeader as="h2" style={{ color: "white" }}>
-            Add New Expense
+            <NewExpense />
           </SemanticUIHeader>
         </Grid.Row>
       </Grid.Column>

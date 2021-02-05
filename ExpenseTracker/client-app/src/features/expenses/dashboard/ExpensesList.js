@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Segment,
   Header as SemantiUiHeader,
@@ -8,6 +8,8 @@ import {
   Grid,
   Container,
 } from "semantic-ui-react";
+import { connect } from 'react-redux';
+import * as actions from '../../../actions';
 
 const paragraph = "lorem ioafjfajnfaj  sa dafn dnfkankfak fdsajk";
 const image = "https://react.semantic-ui.com/images/wireframe/square-image.png";
@@ -16,11 +18,15 @@ const items = [
   {
     childKey: 0,
     image,
-    header: "Header",
+    header: "Header list",
     description:
       "lorem ipsum dolor ipa wjai jdkjaf aw sadfwcafafa fafafs lorem ipsum dolor ipa wjai jdkjaf aw sadfwcafafa fafafs",
     meta: "Metadata",
-    extra: "Extra",
+    extra: (
+      <button>
+        <Icon className="pencil alternate" />
+      </button>
+    )
   },
   {
     childKey: 1,
@@ -72,7 +78,14 @@ const items = [
   },
 ];
 
-export const ExpensesList = () => {
+export const ExpensesList = (props) => {
+  
+  //console.log(props)
+
+  useEffect(() => {
+    props.dispatch(actions.addExpense());
+    
+  }, [])
   return (
     <Item width={10}>
       <Item.Header style={{ margin: 20 }}>
@@ -90,4 +103,14 @@ export const ExpensesList = () => {
   );
 };
 
-export default ExpensesList;
+//import the connect component from the redux library
+// create mapStateToProps
+// console log the props
+
+function mapStateToProps(state) {
+  return {
+    expenses: state.expenses
+  }
+}
+
+export default connect(mapStateToProps)(ExpensesList);
