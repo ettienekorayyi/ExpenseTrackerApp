@@ -1,8 +1,8 @@
 import { Grid, Header as SemanticUIHeader, Segment } from "semantic-ui-react";
 import Header from "../../nav/Header";
-import ExpensesList from "../dashboard/ExpensesList";
-import ExpensesSummary from "../dashboard/ExpensesSummary";
-import ExpensesCategory from "../dashboard/ExpensesCategory";
+import ExpensesList from "../details/ExpensesList";
+import ExpensesSummary from "../details/ExpensesSummary";
+import ExpensesCategory from "../details/ExpensesCategory";
 import Categories from "../../categories/Categories";
 import "../../../app/layout/styles.css";
 

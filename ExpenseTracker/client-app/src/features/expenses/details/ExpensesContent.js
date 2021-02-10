@@ -18,13 +18,6 @@ const ExpensesContent = () => {
             <Grid.Row className='expenses-content-row'>
               <ExpensesList />
             </Grid.Row>
-            <Grid.Row className='expenses-content-row'>
-              <Segment>
-                <Button secondary>
-                  <span><i className='plus icon'></i></span>
-                </Button>
-              </Segment>
-            </Grid.Row>
           </Segment>
         </Segment.Group>
       </Grid.Column>
