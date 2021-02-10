@@ -15,10 +15,10 @@ export function addExpense(expense = initialState) {
     payload: {
       budget: expense.budget,
       description: expense.description,
-      category: "test category",
+      category: expense.category,
       shop: expense.shop,
       amount: expense.amount,
-      date: "June 2020",
+      date: expense.date,
     },
   };
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   Header as SemantiUiHeader,
@@ -8,7 +8,10 @@ import {
   Input,
   Form,
   Segment,
+  Select,
 } from "semantic-ui-react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { connect } from "react-redux";
 import * as actions from "../../../actions";
 
@@ -19,17 +22,30 @@ const toggle = () => {
   formElement.classList.toggle("loading");
 };
 
+const options = [
+  { key: 1, text: "Bills", value: 'bills' },
+  { key: 2, text: "Grocery", value: 'grocery' },
+];
+
 let expense = {
   budget: 0.0,
   description: "",
-  // category
+  category: "",
   shop: "",
   amount: 0.0,
-  // date
+  date: "",
 };
 
 const NewExpense = ({ expenses, dispatch }) => {
+  const [startDate, setStartDate] = useState(new Date());
+  
   console.log(expenses);
+
+  const dateSetter = (current) => {
+    setStartDate(current);
+    expense.date = current;
+  };
+
 
   return (
     <Segment>
@@ -42,11 +58,14 @@ const NewExpense = ({ expenses, dispatch }) => {
         </Divider>
 
         <Form.Group>
-          <Form.Field label="Category" control="select">
-            <option value="category">Select a category</option>
-            <option value="bills">Bills</option>
-            <option value="grocery">Grocery</option>
-          </Form.Field>
+          <Form.Field
+            label="Category"
+            control={Select}
+            options={options}
+            clearable
+            onChange={(e, { value }) => expense.category = value}
+          />
+
           <Form.Field
             label="Shop"
             control={Input}
@@ -76,7 +95,10 @@ const NewExpense = ({ expenses, dispatch }) => {
           />
         </Form.Group>
         <Form.Group>
-          <Form.Field label="Date" control={Input} placeholder="Date" />
+          <DatePicker
+            selected={startDate}
+            onChange={(date) => dateSetter(date)}
+          />
         </Form.Group>
 
         <Button.Group>
