@@ -1,8 +1,6 @@
 import {
   Segment,
-  Button,
   Grid,
-  Item,
   Header as SemanticUIHeader,
 } from "semantic-ui-react";
 import ExpensesList from "./ExpensesList";

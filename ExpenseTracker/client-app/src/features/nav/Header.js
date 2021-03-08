@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, Image, Segment, Grid } from "semantic-ui-react";
+import { Menu, Image } from "semantic-ui-react";
 import { headerMenuStyle } from "../../app/common/styleHelper";
 
 const Header = () => {

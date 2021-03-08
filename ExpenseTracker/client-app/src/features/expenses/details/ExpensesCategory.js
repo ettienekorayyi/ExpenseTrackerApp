@@ -1,13 +1,9 @@
 import React from "react";
 import {
-  Segment,
   Header as SemantiUiHeader,
-  Header,
+  //Header,
   Item,
-  Icon,
-  Divider,
   Grid,
-  Container,
 } from "semantic-ui-react";
 import CategoryChartWidget from "../../categories/CategoryChartWidget";
 
@@ -53,7 +49,7 @@ const householdMock = [
 const ExpensesCategory = () => {
   return (
     <Grid className="colored">
-      <Header as='h2' style={{ color: '#ffffff'}}>Expenses by Category</Header>
+      <SemantiUiHeader as='h2' style={{ color: '#ffffff'}}>Expenses by Category</SemantiUiHeader>
       <Grid.Row className="category-row">
         <Grid.Column width={3}>
           <CategoryChartWidget dataMock={foodAndBeverageMock} />
@@ -62,7 +58,7 @@ const ExpensesCategory = () => {
         <Grid.Column width={10}>
           <Item.Header>
             <Item.Header>
-              <Header as="h2">{items[1].title}</Header>
+              <SemantiUiHeader as="h2">{items[1].title}</SemantiUiHeader>
             </Item.Header>
             <Item.Extra>
               <span>$1200</span>
@@ -72,7 +68,7 @@ const ExpensesCategory = () => {
 
         <Grid.Column width={3}>
           <Item.Header>
-            <Header as="h2">%</Header>
+            <SemantiUiHeader as="h2">%</SemantiUiHeader>
           </Item.Header>
         </Grid.Column>
       </Grid.Row>
@@ -85,7 +81,7 @@ const ExpensesCategory = () => {
         <Grid.Column width={10}>
           <Item.Header>
             <Item.Header>
-              <Header as="h2">{items[2].title}</Header>
+              <SemantiUiHeader as="h2">{items[2].title}</SemantiUiHeader>
             </Item.Header>
             <Item.Extra>
               <span>$1200</span>
@@ -95,7 +91,7 @@ const ExpensesCategory = () => {
 
         <Grid.Column width={3}>
           <Item.Header>
-            <Header as="h2">%</Header>
+            <SemantiUiHeader as="h2">%</SemantiUiHeader>
           </Item.Header>
         </Grid.Column>
       </Grid.Row>
@@ -108,7 +104,7 @@ const ExpensesCategory = () => {
         <Grid.Column width={10}>
           <Item.Header>
             <Item.Header>
-              <Header as="h2">{items[0].title}</Header>
+              <SemantiUiHeader as="h2">{items[0].title}</SemantiUiHeader>
             </Item.Header>
             <Item.Extra>
               <span>{items[0].value}</span>
@@ -118,7 +114,7 @@ const ExpensesCategory = () => {
 
         <Grid.Column width={3}>
           <Item.Header>
-            <Header as="h2">%</Header>
+            <SemantiUiHeader as="h2">%</SemantiUiHeader>
           </Item.Header>
         </Grid.Column>
       </Grid.Row>

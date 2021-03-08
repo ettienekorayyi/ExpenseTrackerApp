@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Segment,
   Header as SemantiUiHeader,
   Icon,
   Image,
@@ -38,10 +37,10 @@ const Categories = () => {
               </Card.Description>
             </Card.Content>
             <Card.Content extra>
-              <a>
+              <div>
                 <Icon name="user" />
                 10 Friends
-              </a>
+              </div>
             </Card.Content>
           </Card>
 
@@ -59,10 +58,10 @@ const Categories = () => {
               </Card.Description>
             </Card.Content>
             <Card.Content extra>
-              <a>
+              <div>
                 <Icon name="user" />
                 10 Friends
-              </a>
+              </div>
             </Card.Content>
           </Card>
 
@@ -80,10 +79,10 @@ const Categories = () => {
               </Card.Description>
             </Card.Content>
             <Card.Content extra>
-              <a>
+              <div>
                 <Icon name="user" />
                 10 Friends
-              </a>
+              </div>
             </Card.Content>
           </Card>
 
@@ -101,10 +100,10 @@ const Categories = () => {
               </Card.Description>
             </Card.Content>
             <Card.Content extra>
-              <a>
+              <div>
                 <Icon name="user" />
                 10 Friends
-              </a>
+              </div>
             </Card.Content>
           </Card>
 
@@ -122,10 +121,10 @@ const Categories = () => {
               </Card.Description>
             </Card.Content>
             <Card.Content extra>
-              <a>
+              <button>
                 <Icon name="user" />
                 10 Friends
-              </a>
+              </button>
             </Card.Content>
           </Card>
         </Card.Group>

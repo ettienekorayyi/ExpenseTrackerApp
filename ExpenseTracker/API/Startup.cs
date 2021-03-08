@@ -33,12 +33,23 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ExpenseTrackerDbContext>(opt => 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", policy => {
+                    policy
+                        .WithOrigins("http://localhost:3000","https://localhost:5001/api/expenses")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+
+            });
+
+            services.AddDbContext<ExpenseTrackerDbContext>(opt =>
             {
                 opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
             });
             services.AddScoped<IRepository, ExpensesRepository>();
-            //services.AddScoped<IDbContext, ExpenseTrackerDbContext>();
+            
             services.AddAutoMapper(typeof(MappingProfile).Assembly);
             services.AddMediatR(typeof(List.Handler));
             services.AddControllers();
@@ -55,6 +66,8 @@ namespace API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
 
