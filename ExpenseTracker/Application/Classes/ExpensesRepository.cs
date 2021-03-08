@@ -13,7 +13,7 @@ namespace ExpenseTracker.Application.Classes
     {
         private ExpenseTrackerDbContext _context;
         
-        public ExpensesRepository(ExpenseTrackerDbContext context) //ExpenseTrackerDbContext
+        public ExpensesRepository(ExpenseTrackerDbContext context) 
         {
              _context = context;
         }

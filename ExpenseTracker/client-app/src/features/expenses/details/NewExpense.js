@@ -15,12 +15,14 @@ import "react-datepicker/dist/react-datepicker.css";
 import { connect } from "react-redux";
 import * as actions from "../../../actions";
 
+/*
 const toggle = () => {
-  // keeps on loading infinitely
-  // fix this
+   keeps on loading infinitely
+   fix this
   let formElement = document.getElementById("form");
   formElement.classList.toggle("loading");
 };
+*/
 
 const options = [
   { key: 1, text: "Bills", value: 'bills' },
@@ -28,10 +30,10 @@ const options = [
 ];
 
 let expense = {
-  budget: 0.0,
   description: "",
   category: "",
   shop: "",
+  quantity: 0,
   amount: 0.0,
   date: "",
 };
@@ -42,8 +44,11 @@ const NewExpense = ({ expenses, dispatch }) => {
   console.log(expenses);
 
   const dateSetter = (current) => {
-    setStartDate(current);
-    expense.date = current;
+    let date = new Date(current);
+    setStartDate(date);
+    
+    console.log(date.toISOString());
+    expense.date = date.toISOString();
   };
 
 
@@ -88,16 +93,16 @@ const NewExpense = ({ expenses, dispatch }) => {
             onChange={(e) => (expense.amount = e.target.value)}
           />
           <Form.Field
-            label="Budget"
+            label="Quantity"
             control={Input}
-            placeholder="Budget"
-            onChange={(e) => (expense.budget = e.target.value)}
+            placeholder="Quantity"
+            onChange={(e) => (expense.quantity = e.target.value)}
           />
         </Form.Group>
         <Form.Group>
           <DatePicker
             selected={startDate}
-            onChange={(date) => dateSetter(date)}
+            onChange={(date) => dateSetter(date)} 
           />
         </Form.Group>
 
@@ -106,7 +111,7 @@ const NewExpense = ({ expenses, dispatch }) => {
           <Button.Or />
           <Button
             positive
-            onClick={() => dispatch(actions.addExpense(expense))}
+            onClick={() => dispatch(actions.createExpenses(expense)) } 
           >
             Submit
           </Button>

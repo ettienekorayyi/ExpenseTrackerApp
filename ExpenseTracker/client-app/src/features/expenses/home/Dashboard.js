@@ -1,9 +1,7 @@
 import { Grid, Header as SemanticUIHeader, Segment } from "semantic-ui-react";
-import Header from "../../nav/Header";
 import ExpensesList from "../details/ExpensesList";
 import ExpensesSummary from "../details/ExpensesSummary";
 import ExpensesCategory from "../details/ExpensesCategory";
-import Categories from "../../categories/Categories";
 import "../../../app/layout/styles.css";
 
 const Dashboard = () => {

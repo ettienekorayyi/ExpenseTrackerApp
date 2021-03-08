@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Segment,
   Header as SemantiUiHeader,
   Divider,
   Item,
@@ -49,7 +48,7 @@ const ExpensesSummary = () => {
                 <Card.Content>
                   <Card.Header key={i.key}>{i.header}</Card.Header>
                   <Card.Description>
-                    <i class="dollar sign icon" />
+                    <i className="dollar sign icon" />
                     <strong>{i.description}</strong>
                   </Card.Description>
                 </Card.Content>

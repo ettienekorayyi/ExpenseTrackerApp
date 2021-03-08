@@ -1,17 +1,13 @@
 import React, { useEffect } from "react";
 import {
-  Segment,
   Header as SemantiUiHeader,
   Divider,
   Item,
-  Icon,
-  Grid,
-  Container,
+  Icon
 } from "semantic-ui-react";
 import { connect } from 'react-redux';
 import * as actions from '../../../actions';
 
-const paragraph = "lorem ioafjfajnfaj  sa dafn dnfkankfak fdsajk";
 const image = "https://react.semantic-ui.com/images/wireframe/square-image.png";
 
 const items = [
@@ -79,13 +75,12 @@ const items = [
 ];
 
 export const ExpensesList = (props) => {
-  
-  //console.log(props)
 
   useEffect(() => {
-    props.dispatch(actions.addExpense());
+    props.dispatch(actions.fetchExpenses());
     
   }, [])
+  
   return (
     <Item width={10}>
       <Item.Header style={{ margin: 20 }}>
